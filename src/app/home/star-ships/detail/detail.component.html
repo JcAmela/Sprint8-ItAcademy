@@ -1,0 +1,40 @@
+<!-- Muestra 'Loading...' mientras 'loading' es true -->
+<div class="sw-loading" *ngIf="loading; else content">
+    <p>Loading...</p>
+</div>
+
+<!-- Contenido principal a mostrar cuando 'loading' es false -->
+<ng-template #content>
+    <div class="sw-ship-detail">
+        <h3 class="sw-ship-name">{{ shipDetails.name }}</h3>
+        <img class="sw-ship-image" [src]="shipImageUrl" alt="{{ shipDetails.name }}">
+
+        <!-- Detalles de la nave -->
+        <div class="sw-ship-specs">
+            <p><strong>Modelo:</strong> {{ shipDetails.model }}</p>
+            <p><strong>Clase:</strong> {{ shipDetails.starship_class }}</p>
+            <p><strong>Fabricante:</strong> {{ shipDetails.manufacturer }}</p>
+            <p><strong>Costo:</strong> {{ shipDetails.cost_in_credits }} créditos</p>
+            <p><strong>Capacidad de tripulación:</strong> {{ shipDetails.crew }}</p>
+            <p><strong>Capacidad de pasajeros:</strong> {{ shipDetails.passengers }}</p>
+            <p><strong>Consumibles:</strong> {{ shipDetails.consumables }}</p>
+            <p><strong>Largo:</strong> {{ shipDetails.length }} metros</p>
+            <p><strong>Velocidad máxima en atmósfera:</strong> {{ shipDetails.max_atmosphering_speed }} km/h</p>
+        </div>
+
+        <!-- Pilotos de la nave -->
+        <div class="sw-pilots" *ngIf="pilotsDetails && pilotsDetails.length; else noPilots">
+            <strong class="sw-pilots-title">Pilotos:</strong>
+            <ul class="sw-pilots-list">
+                <li *ngFor="let pilot of pilotsDetails" class="sw-pilot-item">
+                    <img class="sw-pilot-image" [src]="'https://starwars-visualguide.com/assets/img/characters/' + getPilotId(pilot.url) + '.jpg'" alt="{{ pilot.name }}">
+                    <span class="sw-pilot-name">{{ pilot.name }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #noPilots>
+    <p class="sw-no-pilots"><strong>Pilots:</strong> No disponibles</p>
+</ng-template>

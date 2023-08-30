@@ -1,0 +1,17 @@
+<div class="sw-starships" *ngIf="starShips.length > 0; else noData">
+  <h2 class="sw-starships-title">Naves de Star Wars</h2>
+  <ul class="sw-starships-list">
+    <li *ngFor="let ship of starShips" class="sw-starship-item">
+      <a [routerLink]="['/starships', getShipId(ship)]" class="sw-starship-link">
+        <span class="sw-starship-name">{{ ship.name }}</span>
+        <span class="sw-starship-model">{{ ship.model }}</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noData>
+  <p class="sw-loading-message">Espera unos segundos...</p>
+</ng-template>
+
+<button *ngIf="listShipsService.hasNextPage()" class="sw-loadmore-btn" (click)="loadMore()">View More</button>
