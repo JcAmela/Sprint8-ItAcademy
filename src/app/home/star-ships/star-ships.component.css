@@ -1,102 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212;
-    margin: 0;
-    padding: 0;
-    color: #EAEAEA;
+    font-family: 'Oswald', sans-serif;
+    background-color: #1a1a1a;
 }
 
 .sw-starships {
-    max-width: 1000px;
-    margin: 4rem auto;
-    padding: 3rem;
-    background-color: #232323;
-    border-radius: 20px;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
-    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #1b1b1b;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .sw-starships-title {
     color: #feda4a;
-    font-size: 3rem;
-    margin-bottom: 4rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
     text-align: center;
-    font-family: 'Oswald', sans-serif;
-    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .sw-starships-list {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.sw-starship-item {
+    margin-bottom: 0; /* Eliminado, ya que usamos gap para el espacio */
 }
 
 .sw-starship-link {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 2rem;
-    background: #292929;
-    border: 1px solid #3a3a3a;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+    justify-content: center; 
+    align-items: center;
+    padding: 1rem;
+    background: #2c2c2c;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
     text-decoration: none;
-    color: inherit;
-    height: 100%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
 }
 
 .sw-starship-link:hover {
-    transform: scale(1.05);
-    background: #343434;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+    background: #3c3c3c;
 }
 
 .sw-starship-name {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 0.5rem;
     text-align: center;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
 }
 
 .sw-starship-model {
-    font-size: 1.3rem;
+    font-size: 1rem;
     text-align: center;
-    color: #C5C5C5;
-    font-weight: 400;
 }
 
 .sw-loading-message {
     text-align: center;
     color: #feda4a;
-    font-size: 1.6rem;
-    margin-top: 2rem;
-    font-style: italic;
-    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 1.2rem;
 }
 
 .sw-loadmore-btn {
     display: block;
-    margin: 4rem auto;
-    padding: 1rem 3.5rem;
-    background: #292929;
+    margin: 2rem auto 0;
+    padding: 0.5rem 2rem;
+    background: transparent;
     border: 2px solid #feda4a;
-    border-radius: 28px;
+    border-radius: 8px;
     color: #feda4a;
-    font-size: 1.3rem;
+    font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sw-loadmore-btn:hover {
     background: #feda4a;
-    color: #232323;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    color: #1b1b1b;
 }
