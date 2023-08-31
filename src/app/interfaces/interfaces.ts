@@ -21,3 +21,8 @@ export interface StarShipsResponse {
     results: StarShip[];
     next: string | null;
 }
+
+export interface User {
+    username: string;
+    password: string;
+  }

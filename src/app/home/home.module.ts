@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailComponent } from './star-ships/detail/detail.component';
 import { RouterModule } from '@angular/router';
+import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     HttpClientModule,
     RouterModule,
+    HomeRoutingModule
   ],
   providers: [],
   bootstrap: [HomeComponent]

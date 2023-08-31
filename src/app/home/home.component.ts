@@ -11,8 +11,4 @@ export class HomeComponent {
   changeOpenModal():void{
     this.openModal=true;
   }
-
-  closeAllModals():void{
-    this.openModal=false;
-  }
 }

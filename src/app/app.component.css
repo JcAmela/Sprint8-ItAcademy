@@ -1,0 +1,39 @@
+nav {
+    background-color: #333;
+    padding: 1rem 2rem;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+li {
+    margin-left: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #555;
+}
+
+.logout-btn {
+    color: white;
+    background-color: transparent;
+}
+
+.logout-btn:hover {
+    background-color: #555;
+    cursor: pointer;
+}
