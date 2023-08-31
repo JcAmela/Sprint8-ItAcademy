@@ -7,11 +7,20 @@ body {
 
 .sw-starships {
     max-width: 800px;
+    max-height: 60vh; 
+    overflow-y: auto;
     margin: 0 auto;
     padding: 2rem;
+    padding-bottom: 3rem; 
     background-color: #1b1b1b;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.sw-starships::-webkit-scrollbar {
+    display: none;
 }
 
 .sw-starships-title {
@@ -44,6 +53,8 @@ body {
     transition: transform 0.3s ease, background-color 0.3s ease;
     text-decoration: none;
     color: #ffffff;
+    height: 140px; 
+    overflow: hidden;
 }
 
 .sw-starship-link:hover {

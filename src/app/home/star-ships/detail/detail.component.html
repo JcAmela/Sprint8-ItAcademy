@@ -7,7 +7,8 @@
 <ng-template #content>
     <div class="sw-ship-detail">
         <h3 class="sw-ship-name">{{ shipDetails.name }}</h3>
-        <img class="sw-ship-image" [src]="shipImageUrl" alt="{{ shipDetails.name }}">
+        <img class="sw-ship-image" [src]="shipImageUrl" alt="{{ shipDetails.name }}" (error)="imageError($event)">
+        <p *ngIf="showImageError" class="sw-image-error">La imagen no está disponible</p>
 
         <!-- Detalles de la nave -->
         <div class="sw-ship-specs">
@@ -27,7 +28,10 @@
             <strong class="sw-pilots-title">Pilotos:</strong>
             <ul class="sw-pilots-list">
                 <li *ngFor="let pilot of pilotsDetails" class="sw-pilot-item">
-                    <img class="sw-pilot-image" [src]="'https://starwars-visualguide.com/assets/img/characters/' + getPilotId(pilot.url) + '.jpg'" alt="{{ pilot.name }}">
+                    <img class="sw-pilot-image" 
+                    [src]="getImageUrl(pilot.url)" 
+                    (error)="tryAlternativeImage($event, pilot.url)"
+                    alt="{{ pilot.name }}">               
                     <span class="sw-pilot-name">{{ pilot.name }}</span>
                 </li>
             </ul>

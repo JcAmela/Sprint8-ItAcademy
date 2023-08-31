@@ -16,7 +16,6 @@ export class StarShipsComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchStarShips();
-    this.loadMore();
   }
 
   fetchStarShips(): void {

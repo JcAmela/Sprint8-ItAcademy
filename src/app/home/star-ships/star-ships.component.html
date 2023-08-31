@@ -1,5 +1,5 @@
 <div class="sw-starships" *ngIf="starShips.length > 0; else noData">
-  <h2 class="sw-starships-title">Naves de Star Wars</h2>
+  <h2 class="sw-starships-title">Listado de naves de Star Wars</h2>
   <ul class="sw-starships-list">
     <li *ngFor="let ship of starShips" class="sw-starship-item">
       <a [routerLink]="['/starships', getShipId(ship)]" class="sw-starship-link">

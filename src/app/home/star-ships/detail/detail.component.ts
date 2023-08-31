@@ -15,6 +15,8 @@ export class DetailComponent implements OnInit {
   shipImageUrl: string = '';
   pilotsDetails: any[] = [];
   loading: boolean = true;
+  showImageError: boolean = false;
+
   constructor(
     private listShipsService: ListShipsService,
     private route: ActivatedRoute
@@ -42,10 +44,22 @@ export class DetailComponent implements OnInit {
     });
   }
   
-  
   getPilotId(url: string): string {
     const parts = url.split('/');
     return parts[parts.length - 2];
   }
-  
+
+  imageError(event: any): void {
+    event.target.style.display = 'none';  // Oculta la imagen rota
+    this.showImageError = true;  // Muestra un mensaje
+  }
+
+  // Aquí están las nuevas funciones:
+  getImageUrl(url: string): string {
+    return 'https://starwars-visualguide.com/assets/img/characters/' + this.getPilotId(url) + '.jpg';
+  }
+
+  tryAlternativeImage(event: any, url: string): void {
+    event.target.src = 'https://starwars-visualguide.com/assets/img/characters/' + this.getPilotId(url) + '.png';
+  }
 }
