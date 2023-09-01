@@ -6,7 +6,10 @@ body {
     font-family: 'Oswald', sans-serif;
     background-color: #121212;
 }
-
+.sw-home {
+    background: url('./../../assets/mandalorian.png') no-repeat center center;
+    background-size: cover;
+}
 .sw-home {
     display: flex;
     flex-direction: column;
