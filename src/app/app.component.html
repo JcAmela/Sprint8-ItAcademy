@@ -1,5 +1,6 @@
 <nav>
     <ul>
+      <li *ngIf="!isAuthenticated"><a routerLink="/">Home</a></li>
       <li *ngIf="!isAuthenticated"><a routerLink="/login">Iniciar sesión</a></li>
       <li *ngIf="!isAuthenticated"><a routerLink="/register">Registrarse</a></li>
       <li *ngIf="isAuthenticated"><a (click)="onLogout()" class="logout-btn">Cerrar sesión</a></li>
