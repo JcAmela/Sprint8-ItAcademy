@@ -18,7 +18,7 @@ body {
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
-
+ 
 .sw-starships::-webkit-scrollbar {
     display: none;
 }
@@ -108,23 +108,23 @@ body {
     padding: 0.5rem 2rem;
     background: transparent;
     border: 2px solid #feda4a;
-    border-radius: 15px; /* Bordes redondeados para un diseño moderno */
+    border-radius: 15px;
     color: #feda4a;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .sw-loadmore-btn:hover {
-    transform: scale(1.05); /* Efecto hover animado */
+    transform: scale(1.05); 
     background: #feda4a;
     color: #1b1b1b;
-    box-shadow: 0 4px 12px rgba(254, 218, 74, 0.2); /* Sombra hover */
+    box-shadow: 0 4px 12px rgba(254, 218, 74, 0.2); 
 }
 
 .sw-loadmore-btn:active {
-    transform: scale(0.95); /* Feedback al hacer clic */
+    transform: scale(0.95); 
     background: #1b1b1b;
     color: #feda4a;
 }
