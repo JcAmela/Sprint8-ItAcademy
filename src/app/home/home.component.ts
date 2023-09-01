@@ -7,8 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   openModal:boolean = false
+  showStarShipsButton: boolean = true;
 
-  changeOpenModal():void{
-    this.openModal=true;
-  }
+  changeOpenModal() {
+    this.openModal = !this.openModal;
+    this.showStarShipsButton = false; 
+}
+
 }

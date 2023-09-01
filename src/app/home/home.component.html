@@ -9,7 +9,7 @@
     </header>
 
     <nav class="sw-nav">
-        <button class="sw-nav-btn" (click)="changeOpenModal()">StarShips</button>
+        <button class="sw-nav-btn" *ngIf="showStarShipsButton" (click)="changeOpenModal()">StarShips</button>
     </nav>
 
     <div class="sw-content" *ngIf="openModal">

@@ -12,13 +12,13 @@ body {
     margin: 0 auto;
     padding: 2rem;
     padding-bottom: 3rem; 
-    background-color: #1b1b1b;
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
+
 .sw-starships::-webkit-scrollbar {
     display: none;
 }
@@ -26,8 +26,9 @@ body {
 .sw-starships-title {
     color: #feda4a;
     font-size: 2rem;
-    margin-bottom: 2rem;
     text-align: center;
+    padding: 0;
+    margin-bottom: 1rem;
 }
 
 .sw-starships-list {
@@ -36,11 +37,10 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 2rem;
+    margin-top: 0; 
 }
 
-.sw-starship-item {
-    margin-bottom: 0; /* Eliminado, ya que usamos gap para el espacio */
-}
+.sw-starship-item {}
 
 .sw-starship-link {
     display: flex;
@@ -62,9 +62,14 @@ body {
     background: #3c3c3c;
 }
 
+.sw-starship-link:focus, .sw-starship-link:active {
+    outline: none;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .sw-starship-name {
     font-size: 1.4rem;
-    display: block;
     margin-bottom: 0.5rem;
     text-align: center;
 }
@@ -74,10 +79,27 @@ body {
     text-align: center;
 }
 
-.sw-loading-message {
+.sw-loading-message, .sw-loading-container {
     text-align: center;
     color: #feda4a;
     font-size: 1.2rem;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.sw-loading-container {
+    animation: pulse 1.5s infinite;
+    margin-top: 1rem; 
 }
 
 .sw-loadmore-btn {
@@ -86,14 +108,23 @@ body {
     padding: 0.5rem 2rem;
     background: transparent;
     border: 2px solid #feda4a;
-    border-radius: 8px;
+    border-radius: 15px; /* Bordes redondeados para un diseño moderno */
     color: #feda4a;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
 .sw-loadmore-btn:hover {
+    transform: scale(1.05); /* Efecto hover animado */
     background: #feda4a;
     color: #1b1b1b;
+    box-shadow: 0 4px 12px rgba(254, 218, 74, 0.2); /* Sombra hover */
+}
+
+.sw-loadmore-btn:active {
+    transform: scale(0.95); /* Feedback al hacer clic */
+    background: #1b1b1b;
+    color: #feda4a;
 }

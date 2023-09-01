@@ -1,6 +1,54 @@
- 
-  .welcome-message {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
+.welcome-container {
+  background: url('./../../assets/welcome.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-overlay {
+  background: rgba(0, 0, 0, 0.1); /* Semi-transparent black to enhance readability */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-title {
+  font-size: 3.5rem;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.welcome-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.btn-dark {
+  background-color: #000;
+  border-color: #feda4a;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-dark:hover, .btn-dark:focus {
+  background-color: #feda4a;
+  color: #000;
+  border-color: #000;
+}

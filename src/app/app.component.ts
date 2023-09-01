@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Sprint8-ItAcademy';
+
+  constructor(private router: Router) {}
+
   onLogout() {
     localStorage.removeItem('isAuthenticated');
-    // Y aquí puedes redirigir al usuario al componente de inicio de sesión
+    this.router.navigate(['/login']); 
   }
+
   get isAuthenticated(): boolean {
     return localStorage.getItem('isAuthenticated') ? true : false;
   }
-  
 }

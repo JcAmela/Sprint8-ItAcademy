@@ -59,7 +59,7 @@ h2 {
 .sw-nav-btn {
     padding: 0.5rem 2rem;
     border: 2px solid #feda4a;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.4);
     color: #feda4a;
     font-size: 1.2rem;
     letter-spacing: 1px;
@@ -72,7 +72,7 @@ h2 {
     background-color: #feda4a;
     color: #121212;
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
 }
 
 .sw-content {
