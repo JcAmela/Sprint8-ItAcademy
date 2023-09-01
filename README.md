@@ -1,6 +1,6 @@
 # 🌌 Star Wars Ships Catalog
 
-🚀 [**Visitar el proyecto**](https://jcamela.github.io/Sprint8-ItAcademy/)
+🚀 [**Visitar el proyecto**](URL_DEL_PROYECTO)
 
 Este proyecto se ha desarrollado durante el Sprint 8 de la Academia IT Academy de Barcelona Activa. Se basa en consumir datos de una API y presentar información detallada sobre las naves de Star Wars.
 
@@ -50,7 +50,11 @@ Este proyecto está basado en una prueba técnica de una gran empresa del sector
 ### Nivel 2
 
 8. **Targetas de Pilotos:** Mostrar tarjetas de pilotos en la ficha de cada nave.
+9. **Películas en las que aparece:** Presentación de las películas en las que ha aparecido cada nave.
 
+### Nivel 3
+
+10. **Pruebas Unitarias:** Implementación de tests unitarios para al menos tres componentes.
 
 ## ⭐ Conclusión
 
