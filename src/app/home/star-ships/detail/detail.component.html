@@ -28,17 +28,27 @@
             <strong class="sw-pilots-title">Pilotos:</strong>
             <ul class="sw-pilots-list">
                 <li *ngFor="let pilot of pilotsDetails" class="sw-pilot-item">
-                    <img class="sw-pilot-image" 
-                    [src]="getImageUrl(pilot.url)" 
-                    (error)="tryAlternativeImage($event, pilot.url)"
-                    alt="{{ pilot.name }}">               
+                    <img class="sw-pilot-image" [src]="getImageUrl(pilot.url)">
                     <span class="sw-pilot-name">{{ pilot.name }}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="sw-films" *ngIf="filmDetails && filmDetails.length; else noFilms">
+            <strong class="sw-films-title">Películas:</strong>
+            <ul class="sw-films-list">
+                <li *ngFor="let film of filmDetails; let i = index" class="sw-film-item">
+                    <img [src]="filmImageUrls[i]" alt="Imagen de la película {{ film.title }}" class="sw-film-image">
+                    <span class="sw-film-title">{{ film.title }}</span>
                 </li>
             </ul>
         </div>
     </div>
 </ng-template>
 
+
 <ng-template #noPilots>
     <p class="sw-no-pilots"><strong>Pilots:</strong> No disponibles</p>
+</ng-template>
+<ng-template #noFilms>
+    <p class="sw-no-films"><strong>Películas:</strong> No disponibles</p>
 </ng-template>

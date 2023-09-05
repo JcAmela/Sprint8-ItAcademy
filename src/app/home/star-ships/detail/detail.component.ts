@@ -1,7 +1,9 @@
+// detail.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ListShipsService } from '../../../services/list-ships.service';  // Asegúrate de importar desde la ubicación correcta
+import { ListShipsService } from '../../../services/list-ships.service';
 import { forkJoin } from 'rxjs';
+import { StarShip, Film, Pilot } from './../../../interfaces/interfaces';
 
 @Component({
   selector: 'app-detail',
@@ -9,11 +11,12 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-
-  shipDetails: any;
+  shipDetails: StarShip = {} as StarShip;
   shipId: string = '';
   shipImageUrl: string = '';
-  pilotsDetails: any[] = [];
+  pilotsDetails: Pilot[] = [];
+  filmDetails: Film[] = [];
+  filmImageUrls: string[] = [];
   loading: boolean = true;
   showImageError: boolean = false;
 
@@ -23,43 +26,49 @@ export class DetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loading = true;  // inicia el estado de carga
-    
+    this.loading = true;
+
     this.shipId = this.route.snapshot.paramMap.get('id')!;
     this.listShipsService.getShipDetails(this.shipId).subscribe(details => {
       this.shipDetails = details;
       this.shipImageUrl = `https://starwars-visualguide.com/assets/img/starships/${this.shipId}.jpg`;
-  
-      // Si hay pilotos asociados a la nave, se realizan las llamadas simultáneas
+
       if (this.shipDetails.pilots.length) {
         const pilotObservables = this.shipDetails.pilots.map((pilotUrl: string) => this.listShipsService.getPilotDetails(pilotUrl));
-  
         forkJoin(pilotObservables).subscribe(pilots => {
-          this.pilotsDetails = pilots as any[]; // Añadimos un casting aquí
-          this.loading = false;  // finaliza el estado de carga
+          this.pilotsDetails = pilots as any[];
+          this.loading = false;
         });
       } else {
-        this.loading = false;  // finaliza el estado de carga si no hay pilotos
+        this.loading = false;
       }
+
+      if (this.shipDetails.films.length) {
+        const filmObservables = this.shipDetails.films.map((filmUrl: string) => this.listShipsService.getFilmDetails(filmUrl));
+        forkJoin(filmObservables).subscribe(films => {
+          this.filmDetails = films;
+          
+          this.filmImageUrls = films.map(film => this.listShipsService.getFilmImageUrl(film.episode_id));
+        });
+      }
+
+
+
+
     });
   }
-  
+
   getPilotId(url: string): string {
     const parts = url.split('/');
     return parts[parts.length - 2];
   }
 
   imageError(event: any): void {
-    event.target.style.display = 'none';  // Oculta la imagen rota
-    this.showImageError = true;  // Muestra un mensaje
+    event.target.style.display = 'none';
+    this.showImageError = true;
   }
 
-  // Aquí están las nuevas funciones:
   getImageUrl(url: string): string {
     return 'https://starwars-visualguide.com/assets/img/characters/' + this.getPilotId(url) + '.jpg';
-  }
-
-  tryAlternativeImage(event: any, url: string): void {
-    event.target.src = 'https://starwars-visualguide.com/assets/img/characters/' + this.getPilotId(url) + '.png';
   }
 }
