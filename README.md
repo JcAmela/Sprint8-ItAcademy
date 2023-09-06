@@ -19,8 +19,6 @@ Este proyecto se ha desarrollado durante el Sprint 8 de la Academia IT Academy d
 - [Implementaciones](#implementaciones)
   - [Nivel 1](#nivel-1)
   - [Nivel 2](#nivel-2)
-  - [Nivel 3](#nivel-3)
-
 ## Enunciado
 
 Este proyecto está basado en una prueba técnica de una gran empresa del sector e-commerce en Barcelona...
@@ -51,10 +49,6 @@ Este proyecto está basado en una prueba técnica de una gran empresa del sector
 
 8. **Targetas de Pilotos:** Mostrar tarjetas de pilotos en la ficha de cada nave.
 9. **Películas en las que aparece:** Presentación de las películas en las que ha aparecido cada nave.
-
-### Nivel 3
-
-10. **Pruebas Unitarias:** Implementación de tests unitarios para al menos tres componentes.
 
 ## ⭐ Conclusión
 
