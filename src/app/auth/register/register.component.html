@@ -2,16 +2,26 @@
   <div class="register-overlay">
     <div class="register-box">
       <h2 class="register-title text-center">Join the Galaxy</h2>
-      <form (ngSubmit)="onRegister()" class="register-form">
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="register-form">
+        
         <div class="form-group">
-          <input [(ngModel)]="username" name="username" class="form-control" placeholder="Username" required>
+          <input formControlName="username" class="form-control" placeholder="Username" required>
         </div>
+
         <div class="form-group">
-          <input [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="Password" required>
+          <input formControlName="password" type="password" class="form-control" placeholder="Password" required>
         </div>
+        <div *ngIf="password?.touched && password?.errors?.['minlength']" class="error">
+            La contraseña debe tener al menos 8 caracteres.
+        </div>
+
         <div class="form-group">
-          <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="Confirm Password" required>
+          <input formControlName="confirmPassword" type="password" class="form-control" placeholder="Confirm Password" required>
         </div>
+        <div *ngIf="confirmPassword?.touched && confirmPassword?.errors?.['minlength']" class="error">
+            La confirmación de la contraseña debe tener al menos 8 caracteres.
+        </div>
+
         <button type="submit" class="btn btn-dark btn-block">Register</button>
       </form>
     </div>

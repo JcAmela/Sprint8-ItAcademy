@@ -1,13 +1,20 @@
 <div class="login-container">
-  <form class="login-form" (ngSubmit)="onLogin()">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
     <div class="input-group mb-3">
       <span class="input-group-text" id="username-addon"><i class="fas fa-user"></i></span>
-      <input [(ngModel)]="username" name="username" placeholder="Username" aria-label="Username" aria-describedby="username-addon" required>
+      <input formControlName="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="username-addon">
     </div>
+
     <div class="input-group mb-3">
       <span class="input-group-text" id="password-addon"><i class="fas fa-lock"></i></span>
-      <input [(ngModel)]="password" name="password" type="password" placeholder="Password" aria-label="Password" aria-describedby="password-addon" required>
+      <input formControlName="password" class="form-control" type="password" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
     </div>
-    <button class="btn btn-primary login-btn" type="submit">Login</button>
+    <div *ngIf="password?.touched && password?.errors?.['minlength']" class="error">
+        La contraseña debe tener al menos 8 caracteres.
+    </div>
+
+    <div *ngIf="loginFailed" class="error">Invalid credentials.</div>
+
+    <button type="submit" class="btn btn-primary login-btn">Login</button>
   </form>
 </div>

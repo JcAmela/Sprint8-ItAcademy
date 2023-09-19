@@ -1,30 +1,37 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  username: string = '';
-  password: string = '';
-  confirmPassword: string = '';
+  registerForm: FormGroup;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private fb: FormBuilder) {
+    this.registerForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', Validators.required],
+    }, {validator: this.passwordsMustMatch});
+  }
+
+  get username() { return this.registerForm.get('username'); }
+  get password() { return this.registerForm.get('password'); }
+  get confirmPassword() { return this.registerForm.get('confirmPassword'); }
+
+  passwordsMustMatch(form: FormGroup) {
+    return form.get('password')?.value === form.get('confirmPassword')?.value ? null : {passwordMismatch: true};
+  }
 
   onRegister() {
-    if (this.password !== this.confirmPassword) {
-      alert('Passwords do not match');
-      return;
-    }
-  
-    // Almacenamos el nombre de usuario y la contraseña en localStorage
-    localStorage.setItem('username', this.username);
-    localStorage.setItem('password', this.password);
-  
-    // Redirigimos al usuario a la página de inicio de sesión
+    if (this.registerForm.invalid) return;
+
+    localStorage.setItem('username', this.registerForm.value.username);
+    localStorage.setItem('password', this.registerForm.value.password);
+
     this.router.navigate(['/login']);
   }
-  
-  
 }

@@ -45,3 +45,11 @@
 .login-btn:hover {
     background-color: #555;
 }
+.error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    font-size: 0.875em;
+}
